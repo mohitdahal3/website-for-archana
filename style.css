@@ -1,0 +1,145 @@
+.my-button-cta {
+  display: inline-block;
+  background-color: #EA580C;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0px 0px 10px 0px #EA580C;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.my-button-cta:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #EA580C;
+  border-color: #EA580C;
+}
+
+.cta-less-shadow{
+  box-shadow: 0px 0px 5px 0px #EA580C;
+}
+
+.contact-button{
+  display: inline-block;
+  background-color: rgb(0, 128, 255);
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0px 0px 3px 0px rgb(0, 128, 255);
+  border: 1px solid rgb(0, 128, 255);
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover{
+  cursor: pointer;
+  background-color: white;
+  color: rgb(0, 128, 255);
+  box-shadow: 0px 0px 5px 0px rgb(0, 128, 255);
+}
+
+
+.group::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+
+  background: conic-gradient(black var(--angle, 0deg), transparent 0deg);
+  mask: radial-gradient(closest-side, black 99%, transparent 100%);
+  -webkit-mask: radial-gradient(closest-side, black 99%, transparent 100%);
+}
+
+
+
+
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.85); /* Soft white tint */
+  z-index: 0;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 10;
+}
+
+
+.hero-section {
+  background-image: url('./media/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#videos{
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+@media (min-width: 490px) {
+  #videos{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 600px) {
+  #videos{
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}
+
+#image-why-it-matters{
+  box-shadow: 0 0 10px 0 gray;
+  transition: all 0.3s ease;
+}
+#image-why-it-matters:hover{
+  box-shadow: 0 0 17px -1px gray;
+}
+
+
+.option-hoverable {
+  position: relative;
+  cursor: pointer;
+}
+
+.option-hoverable::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* slight gap below the text */
+  width: 0%;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s ease;
+}
+
+.option-hoverable:hover::after {
+  width: 100%;
+}
+
+video:hover{
+  cursor: pointer;
+}
+
+video:fullscreen {
+  object-fit: contain !important;
+  background-color: black;
+}
