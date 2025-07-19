@@ -129,3 +129,46 @@ document.querySelectorAll('.group').forEach(group => {
     animateTo(0);
   });
 });
+
+
+
+
+
+const modal = document.getElementById('donate-modal');
+const donateBtns = document.querySelectorAll('[data-donate-btn]');
+const closeBtn = document.getElementById('close-modal');
+
+// Function to show modal with fade and pointer enable
+let scrollY = 0;
+
+function showModal() {
+  scrollY = window.scrollY;
+  document.body.style.top = `-${scrollY}px`;
+  document.body.classList.add('noscroll-preserve');
+  modal.classList.remove('pointer-events-none', 'opacity-0');
+  modal.classList.add('opacity-100', 'pointer-events-auto');
+}
+
+function hideModal() {
+  document.body.classList.remove('noscroll-preserve');
+  document.body.style.top = '';
+  window.scrollTo(0, scrollY);
+  modal.classList.remove('opacity-100', 'pointer-events-auto');
+  modal.classList.add('opacity-0', 'pointer-events-none');
+}
+
+
+// Open on any donate button click
+donateBtns.forEach(btn => {
+  btn.addEventListener('click', showModal);
+});
+
+// Close on click of X
+closeBtn.addEventListener('click', hideModal);
+
+// Close on click outside modal content
+modal.addEventListener('click', e => {
+  if (e.target === modal) {
+    hideModal();
+  }
+});

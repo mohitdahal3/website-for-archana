@@ -143,3 +143,12 @@ video:fullscreen {
   object-fit: contain !important;
   background-color: black;
 }
+
+
+
+.noscroll-preserve {
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+}
+
