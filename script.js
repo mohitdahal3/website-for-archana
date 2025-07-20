@@ -10,7 +10,7 @@ const swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev"
   },
   autoplay: {
-    delay: 6000,
+    delay: 8000,
     disableOnInteraction: false
   },
   breakpoints: {
@@ -24,6 +24,8 @@ const videos = document.querySelectorAll('.carousel-video');
 let hoverTimeout = null;
 
 videos.forEach(video => {
+  const wrapper = video.closest('.video-wrapper'); // ✅ this is new
+
   // Hover preview
   video.addEventListener('mouseenter', () => {
     swiper.autoplay.stop();
@@ -32,20 +34,24 @@ videos.forEach(video => {
       if (v !== video) {
         v.pause();
         v.controls = false;
-        v.muted = true; // force mute others
+        v.muted = true;
+        v.closest('.video-wrapper')?.classList.remove('playing'); // ✅ remove class from others
       }
     });
 
     video.controls = false;
-    video.muted = true; // preview is always muted
+    video.muted = true;
     video.play().catch(() => {});
+    wrapper?.classList.add('playing'); // ✅ add play-hide class on hover
   });
 
   // Pause preview on leave
   video.addEventListener('mouseleave', () => {
     video.pause();
     video.controls = false;
-    video.muted = true; // always keep it muted when leaving
+    video.muted = true;
+
+    wrapper?.classList.remove('playing'); // ✅ bring back the play icon
 
     clearTimeout(hoverTimeout);
     hoverTimeout = setTimeout(() => {
@@ -55,26 +61,30 @@ videos.forEach(video => {
 
   // Fullscreen click behavior
   video.addEventListener('click', () => {
-    video.muted = false; // unmute in fullscreen
+    video.muted = false;
     video.controls = true;
 
-    // request fullscreen
+    wrapper?.classList.remove('playing'); // ✅ icon is hidden when clicked
+
     if (video.requestFullscreen) video.requestFullscreen();
     else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
     else if (video.msRequestFullscreen) video.msRequestFullscreen();
   });
-
-  // Handle exiting fullscreen
-  document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement) {
-      videos.forEach(v => {
-        v.controls = false;
-        v.pause();
-        v.muted = true; // return to muted preview
-      });
-    }
-  });
 });
+
+// Handle exiting fullscreen
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    videos.forEach(v => {
+      v.controls = false;
+      v.pause();
+      v.muted = true;
+
+      v.closest('.video-wrapper')?.classList.remove('playing'); // ✅ show icon again
+    });
+  }
+});
+
 
 
 
