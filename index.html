@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Archana Bhurtel - A Mother to Many</title>
+  <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
 
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <link rel="stylesheet" href="style.css">
@@ -333,9 +335,9 @@
         <button data-donate-btn class="my-button-cta cta-less-shadow">
           Donate Now
         </button>
-        <a role="button" class="contact-button">
+        <button data-contact-btn class="contact-button">
           Contact Archana
-        </a>
+        </button>
       </div>
     </div>
   </section>
@@ -357,16 +359,16 @@
   </footer>
 
 
-  <!-- Modal Overlay -->
+  <!-- Donate Modal Overlay -->
   <div id="donate-modal"
     class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
 
     <!-- Modal Content Wrapper -->
     <div
       class="bg-white w-[90%] max-w-md max-h-[90vh] overflow-hidden p-0 rounded-lg shadow-lg relative transform scale-95 transition-transform duration-300">
-      <div class="p-6 overflow-y-auto max-h-[90vh] pr-3">
+      <div class="p-6 overflow-y-auto max-h-[90vh] pr-5">
         <!-- Close Button -->
-        <button id="close-modal" class="absolute top-3 right-4 text-gray-600 hover:text-black text-2xl font-bold">
+        <button id="close-donate-modal" class="absolute top-3 right-4 text-gray-600 hover:text-black text-2xl font-bold">
           &times;
         </button>
 
@@ -383,9 +385,32 @@
           <p class="mb-1"><strong>Account Number</strong><br>0010054350500011</p>
           <p class="mb-1"><strong>Branch Code</strong><br>001</p>
         </div>
-        <p class="text-gray-700 text-center text-lg leading-relaxed">
 
-        </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Contact Modal Overlay -->
+  <div id="contact-modal"
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
+
+    <!-- Modal Content Wrapper -->
+    <div
+      class="bg-white w-[90%] max-w-md max-h-[90vh] overflow-hidden p-0 rounded-lg shadow-lg relative transform scale-95 transition-transform duration-300">
+      <div class="p-6 overflow-y-auto max-h-[90vh] pr-5">
+        <!-- Close Button -->
+        <button id="close-contact-modal" class="absolute top-3 right-4 text-gray-600 hover:text-black text-2xl font-bold">
+          &times;
+        </button>
+
+        <!-- Modal Body -->
+        <h3 class="text-2xl font-semibold mb-4 text-center text-gray-800">Contact Archana</h3>
+        
 
 
       </div>

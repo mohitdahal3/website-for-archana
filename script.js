@@ -144,41 +144,84 @@ document.querySelectorAll('.group').forEach(group => {
 
 
 
-const modal = document.getElementById('donate-modal');
+const donateModal = document.getElementById('donate-modal');
 const donateBtns = document.querySelectorAll('[data-donate-btn]');
-const closeBtn = document.getElementById('close-modal');
+const donateModalCloseBtn = document.getElementById('close-donate-modal');
 
 // Function to show modal with fade and pointer enable
-let scrollY = 0;
+let scrollY1 = 0;
 
-function showModal() {
-  scrollY = window.scrollY;
-  document.body.style.top = `-${scrollY}px`;
+function showDonateModal() {
+  scrollY1 = window.scrollY;
+  document.body.style.top = `-${scrollY1}px`;
   document.body.classList.add('noscroll-preserve');
-  modal.classList.remove('pointer-events-none', 'opacity-0');
-  modal.classList.add('opacity-100', 'pointer-events-auto');
+  donateModal.classList.remove('pointer-events-none', 'opacity-0');
+  donateModal.classList.add('opacity-100', 'pointer-events-auto');
 }
 
-function hideModal() {
+function hideDonateModal() {
   document.body.classList.remove('noscroll-preserve');
   document.body.style.top = '';
-  window.scrollTo(0, scrollY);
-  modal.classList.remove('opacity-100', 'pointer-events-auto');
-  modal.classList.add('opacity-0', 'pointer-events-none');
+  window.scrollTo(0, scrollY1);
+  donateModal.classList.remove('opacity-100', 'pointer-events-auto');
+  donateModal.classList.add('opacity-0', 'pointer-events-none');
 }
 
 
 // Open on any donate button click
 donateBtns.forEach(btn => {
-  btn.addEventListener('click', showModal);
+  btn.addEventListener('click', showDonateModal);
 });
 
 // Close on click of X
-closeBtn.addEventListener('click', hideModal);
+donateModalCloseBtn.addEventListener('click', hideDonateModal);
 
 // Close on click outside modal content
-modal.addEventListener('click', e => {
-  if (e.target === modal) {
-    hideModal();
+donateModal.addEventListener('click', e => {
+  if (e.target === donateModal) {
+    hideDonateModal();
+  }
+});
+
+
+
+
+
+const contactModal = document.getElementById('contact-modal');
+const contactBtns = document.querySelectorAll('[data-contact-btn]');
+const contactModalCloseBtn = document.getElementById('close-contact-modal');
+
+// Function to show modal with fade and pointer enable
+let scrollY2 = 0;
+
+function showContactModal() {
+  scrollY2 = window.scrollY;
+  document.body.style.top = `-${scrollY2}px`;
+  document.body.classList.add('noscroll-preserve');
+  contactModal.classList.remove('pointer-events-none', 'opacity-0');
+  contactModal.classList.add('opacity-100', 'pointer-events-auto');
+}
+
+function hideContactModal() {
+  document.body.classList.remove('noscroll-preserve');
+  document.body.style.top = '';
+  window.scrollTo(0, scrollY2);
+  contactModal.classList.remove('opacity-100', 'pointer-events-auto');
+  contactModal.classList.add('opacity-0', 'pointer-events-none');
+}
+
+
+// Open on any donate button click
+contactBtns.forEach(btn => {
+  btn.addEventListener('click', showContactModal);
+});
+
+// Close on click of X
+contactModalCloseBtn.addEventListener('click', hideContactModal);
+
+// Close on click outside modal content
+contactModal.addEventListener('click', e => {
+  if (e.target === contactModal) {
+    hideContactModal();
   }
 });
