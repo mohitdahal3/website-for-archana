@@ -161,9 +161,13 @@ video:fullscreen {
 
 
 .background-tea-rose{
-  background-color: #E5C8CD;
+  background-color: #ffedf0aa;
 }
 
 .background-sky-blue{
-  background-color: #fcfeff;
+  background-color: #f3fffe96;
+}
+
+.background-light-yellow{
+  background-color: #fffdf5;
 }
